@@ -1,0 +1,52 @@
+<div class="container-1 mt-4">
+  <h1>Welcome to My Blog!</h1>
+  <p class="intro-1">
+    Hi, I’m Md Asif Karim, a student with a deep passion for exploring the
+    dynamic relationship between technology and lifestyle. As I navigate the
+    world of learning, I’m constantly fascinated by how innovative tech shapes
+    the way we live, work, and connect. This blog is my space to share insights,
+    tips, and discoveries on how technology can enhance everyday life, from
+    productivity hacks to wellness tools. Join me on this journey as I blend my
+    love for technology with the pursuit of a balanced, modern lifestyle.
+  </p>
+
+  <h2>Latest Articles</h2>
+
+  <!-- Cards for latest articles -->
+  <div class="row">
+    <% if (articles && articles.length > 0) { %> <% articles.slice(0,
+    4).forEach(article => { %>
+    <!-- Limit to first 4 posts -->
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <% if (article.featureImage) { %>
+        <img
+          src="<%= article.featureImage %>"
+          alt="<%= article.title %>"
+          class="card-img-top"
+          style="max-width: 100%; height: auto"
+          loading="lazy"
+        />
+        <% } else { %>
+        <img
+          src="<%= article.image %>"
+          alt="<%= article.title %>"
+          class="card-img-top"
+          style="max-width: 100%; height: auto"
+          loading="lazy"
+        />
+        <% } %>
+        <div class="card-body">
+          <h5 class="card-title"><%= article.title %></h5>
+          <p class="card-text"><%= article.content.substring(0, 100) %>...</p>
+          <a href="/post/<%= article.id %>" class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+    <% }) %> <% } else { %>
+    <p>No articles available.</p>
+    <% } %>
+  </div>
+</div>

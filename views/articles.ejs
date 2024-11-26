@@ -1,0 +1,41 @@
+<div class="mb-3">
+  <header class="text-center mb-4">
+    <h1 class="display-4">Article Library</h1>
+  </header>
+
+  <div class="container mt-4">
+    <% if (articles.length > 0) { %>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover shadow-sm">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Article Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Publish Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% articles.forEach((article) => { %>
+          <tr>
+            <td>
+              <a
+                href="/post/<%= article.id %>"
+                class="text-decoration-none text"
+              >
+                <%= article.title %>
+              </a>
+            </td>
+            <td class="text-decoration-none"><%= article.categoryName %></td>
+            <td class="text-secondary"><%= article.postDate %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% } else { %>
+    <div class="alert alert-warning text-center">
+      <p>No articles found. Check back later!</p>
+    </div>
+    <% } %>
+  </div>
+</div>

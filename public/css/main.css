@@ -1,0 +1,234 @@
+body {
+  font-family: Helvetica;
+  background-color: #c9e6f0;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: #78b3ce;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.name {
+  font-size: 25px;
+  padding-top: 25px;
+  color: #fbf8ef;
+}
+
+.navbar a {
+  color: #fbf8ef;
+  text-decoration: none;
+  text-align: center;
+}
+
+.navbar a:hover {
+  color: #f96e2a;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: square;
+}
+
+ul li {
+  padding: 10px;
+}
+
+/* about page CSS */
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+p {
+  color: #000;
+}
+
+.about {
+  padding-bottom: 25px;
+  text-decoration: underline;
+}
+
+.pic {
+  padding-top: 50px;
+}
+
+.asif {
+  border: solid 5px #f96e2a;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+  box-shadow: 5px 5px 10px #333;
+}
+.asif:hover {
+  transform: scale(1.2);
+}
+
+.intro-2 {
+  text-align: justify;
+  width: 700px;
+}
+
+/* home.html */
+
+.container-1 {
+  padding: 20px 100px;
+}
+
+.intro-1 {
+  text-align: justify;
+}
+
+/* Home Card Custom CSS */
+.card-img-top {
+  height: 200px; /* Adjust the image height */
+  object-fit: cover; /* Ensure image covers the space properly */
+}
+
+.card {
+  border: 5px solid #f96e2a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fbf8ef;
+}
+
+.btn:hover {
+  background-color: #78b3ce;
+  color: #fbf8ef;
+}
+
+/* Category page CSS */
+
+/* aricle page css */
+
+/* Custom Styles for article page */
+.article-header {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #f96e2a;
+}
+
+.article-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-body {
+  background-color: #fbf8ef;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+hr {
+  border-top: 1px solid #fbf8ef;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fbf8ef;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Articles Page */
+.table-bordered th,
+.table-bordered td {
+  vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #9e9e9e80;
+}
+
+.text {
+  color: #f96e2a;
+}
+
+.alert-warning {
+  background-color: #fbf8ef;
+  border: 1px solid #fbf8ef;
+  color: #856404;
+}
+
+/* footer */
+.footer {
+  background-color: #78b3ce;
+  padding: 2px;
+  position: relative;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+  color: #fbf8ef;
+}
+
+h1 {
+  color: #333;
+}
+
+h2 {
+  margin-top: 40px;
+  color: #333;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+  .navbar a {
+    display: block;
+    text-align: left;
+  }
+
+  .card-list li {
+    width: calc(100% - 20px); /* Full width on mobile */
+    margin: 10px 0;
+  }
+}

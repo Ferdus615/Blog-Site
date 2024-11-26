@@ -1,0 +1,49 @@
+<div>
+  <h1>Add New Article</h1>
+  <form action="/articles/add" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Content:</label>
+      <textarea
+        id="content"
+        name="content"
+        rows="4"
+        class="form-control"
+        required
+      ></textarea>
+    </div>
+    <div mb-3>
+      <label for="category" class="form-label">Category:</label>
+      <select id="category" name="category" class="form-select" required>
+        <% categories.forEach((category) => { %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+        <% }); %>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="featureImage" class="form-label">Feature Image:</label>
+      <input
+        type="file"
+        id="featureImage"
+        name="featureImage"
+        accept="image/*"
+        class="form-control"
+        required
+      />
+    </div>
+    <div>
+      <label for="published" class="form-label">Publish:</label>
+      <input type="checkbox" id="published" name="published" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Article</button>
+  </form>
+</div>

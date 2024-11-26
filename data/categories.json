@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Technology",
+    "image": "/images/Technology.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Lifestyle",
+    "image": "/images/Lifestyle.webp"
+  },
+  {
+    "id": 3,
+    "name": "Science",
+    "image": "/images/Science.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Health",
+    "image": "/images/Health.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Business",
+    "image": "/images/Business.jpg"
+  }
+]

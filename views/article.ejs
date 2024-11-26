@@ -1,0 +1,53 @@
+<div class="mb-3">
+  <header class="mb-4">
+    <h1 class="display-4 text-center"><%= article.title %></h1>
+  </header>
+
+  <div class="container mt-4">
+    <article class="row">
+      <div class="col-md-8">
+        <div class="card mb-4 shadow-lg">
+          <% if (article.featureImage) { %>
+          <img
+            src="<%= article.featureImage %>"
+            alt="<%= article.title %>"
+            class="card-img-top img-fluid"
+            loading="lazy"
+          />
+          <% } else { %>
+          <img
+            src="<%= article.image %>"
+            alt="<%= article.title %>"
+            class="card-img-top img-fluid"
+            loading="lazy"
+          />
+          <% } %>
+
+          <div class="card-body">
+            <p class="text-muted">
+              <strong>Category:</strong> <%= article.categoryName %>
+            </p>
+            <p class="text-muted">
+              <strong>Date:</strong> <%= article.postDate %>
+            </p>
+            <hr />
+            <p class="lead"><%= article.content %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-lg">
+          <div class="card-body">
+            <h5 class="card-title">About the Author</h5>
+            <p class="card-text">
+              Md Asif Karim is a student passionate about the intersection of
+              technology and lifestyle. Stay tuned for more insightful articles!
+            </p>
+            <a href="/articles" class="btn btn-secondary">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

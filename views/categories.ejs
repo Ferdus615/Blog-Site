@@ -1,0 +1,40 @@
+<div class="mb-3">
+  <h1 class="text-center mb-4">Welcome to Our Categories</h1>
+  <p class="text-center mb-4">
+    Discover a world of insights and inspiration with our carefully curated
+    categories. Each section is designed to help you navigate through a wealth
+    of content tailored to your interests. Whether you're here to explore the
+    latest in technology, dive into lifestyle tips, or uncover groundbreaking
+    science discoveries, we've got something for everyone.
+  </p>
+  <div class="container mt-4">
+    <% if (categories.length > 0) { %>
+    <div class="row justify-content-center">
+      <% categories.forEach((category) => { %>
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+        <div class="card h-100 category-card">
+          <% if (category.image) { %>
+          <img
+            src="<%= category.image %>"
+            class="card-img-top"
+            alt="<%= category.name %>"
+          />
+          <% } else { %>
+          <img
+            src="/images/placeholder.png"
+            class="card-img-top"
+            alt="No image available"
+          />
+          <% } %>
+          <div class="card-body p-2">
+            <h6 class="card-title text-center"><%= category.name %></h6>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <% } else { %>
+    <p class="text-danger text-center">No categories available.</p>
+    <% } %>
+  </div>
+</div>
