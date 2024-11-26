@@ -120,59 +120,67 @@ contentService
 
     // Route to handle adding new article
     app.post("/articles/add", upload.single("featureImage"), (req, res) => {
-      let processArticle = (imageUrl) => {
-        // Include the published field (checkbox value)
-        const { title, content, category } = req.body;
-        const published = req.body.published === "on"; // Checkbox returns "on" if checked
+  console.log("Request Body:", req.body);
+  console.log("Uploaded File:", req.file);
 
-        const newArticle = {
-          title,
-          content,
-          category,
-          featureimage: imageUrl,
-          published,
-        };
+  let processArticle = (imageUrl) => {
+    console.log("Image URL:", imageUrl);
 
-        contentService
-          .addArticle(newArticle)
-          .then((article) => {
-            console.log("New article added:", article);
+    const { title, content, category } = req.body;
+    const published = req.body.published === "on";
 
-            // Redirect to the articles list
-            res.redirect("/articles");
-          })
-          .catch((err) => {
-            console.error("Error adding article:", err);
-            res.status(500).send("Internal Server Error");
-          });
-      };
+    if (!title || !content || !category) {
+      console.error("Missing required fields");
+      return res.status(400).send("Missing required fields");
+    }
 
-      if (req.file) {
-        let streamUpload = (req) => {
-          return new Promise((resolve, reject) => {
-            let stream = cloudinary.uploader.upload_stream((error, result) => {
-              if (result) {
-                resolve(result);
-              } else {
-                reject(error);
-              }
-            });
-            streamifier.createReadStream(req.file.buffer).pipe(stream);
-          });
-        };
+    const newArticle = {
+      title,
+      content,
+      category,
+      featureImage: imageUrl,
+      published,
+    };
 
-        streamUpload(req)
-          .then((uploaded) => {
-            processArticle(uploaded.url);
-          })
-          .catch((error) => {
-            console.error("Image upload error:", error);
-            processArticle(""); // Process article without image if upload fails
-          });
-      } else {
-        processArticle(""); // No image provided
-      }
-    });
+    contentService
+      .addArticle(newArticle)
+      .then((article) => {
+        console.log("Article added successfully:", article);
+        res.redirect("/articles");
+      })
+      .catch((err) => {
+        console.error("Error adding article:", err);
+        res.status(500).send("Internal Server Error");
+      });
+  };
+
+  if (req.file) {
+    let streamUpload = (req) => {
+      return new Promise((resolve, reject) => {
+        let stream = cloudinary.uploader.upload_stream((error, result) => {
+          if (result) {
+            resolve(result);
+          } else {
+            reject(error);
+          }
+        });
+        streamifier.createReadStream(req.file.buffer).pipe(stream);
+      });
+    };
+
+    streamUpload(req)
+      .then((uploaded) => {
+        processArticle(uploaded.url);
+      })
+      .catch((error) => {
+        console.error("Image upload error:", error);
+        processArticle(""); // Proceed without image
+      });
+  } else {
+    processArticle(""); // No image provided
+  }
+});
+
 
     // Route to get all posts or filter by category or minDate
     app.get("/posts", (req, res) => {
