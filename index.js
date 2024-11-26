@@ -120,25 +120,32 @@ contentService
 
     // Route to handle adding new article
     app.post("/articles/add", upload.single("featureImage"), (req, res) => {
+      console.log("Request Body:", req.body);
+      console.log("Uploaded File:", req.file);
+
       let processArticle = (imageUrl) => {
-        // Include the published field (checkbox value)
+        console.log("Image URL:", imageUrl);
+
         const { title, content, category } = req.body;
-        const published = req.body.published === "on"; // Checkbox returns "on" if checked
+        const published = req.body.published === "on";
+
+        if (!title || !content || !category) {
+          console.error("Missing required fields");
+          return res.status(400).send("Missing required fields");
+        }
 
         const newArticle = {
           title,
           content,
           category,
-          featureimage: imageUrl,
+          featureImage: imageUrl,
           published,
         };
 
         contentService
           .addArticle(newArticle)
           .then((article) => {
-            console.log("New article added:", article);
-
-            // Redirect to the articles list
+            console.log("Article added successfully:", article);
             res.redirect("/articles");
           })
           .catch((err) => {
@@ -167,7 +174,7 @@ contentService
           })
           .catch((error) => {
             console.error("Image upload error:", error);
-            processArticle(""); // Process article without image if upload fails
+            processArticle(""); // Proceed without image
           });
       } else {
         processArticle(""); // No image provided
