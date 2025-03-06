@@ -9,7 +9,7 @@ Date Created: 2024-09-19
 
 GITHUB URL:
 
-VERCEL URL:
+VERCEL URL: https://yes-five-tau.vercel.app/
 
 
 ### Technology Stack
