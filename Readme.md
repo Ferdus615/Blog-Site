@@ -1,24 +1,16 @@
-# Web322 Assignment
+Student Name: Ferdus Rhaman Khan
 
-Student Name: Md Asif Karim
+Student Number: 2020000000038
 
-Student Number: 116316233
-
-Student Email: makarim5@myseneca.ca
+Student Email: 020000000038@seu.edu.bd
 
 Date Created: 2024-09-19
 
----
 
-GITHUB URL: https://github.com/AsifKarim1971/web322_assignment
+GITHUB URL:
 
-VERCEL URL: https://web322-assignment-ivory.vercel.app/
+VERCEL URL:
 
-https://web322-assignment-git-main-md-asif-karims-projects-662fec7a.vercel.app/
-
-https://web322-assignment-jd28uu68b-md-asif-karims-projects-662fec7a.vercel.app/
-
----
 
 ### Technology Stack
 
@@ -30,15 +22,11 @@ https://web322-assignment-jd28uu68b-md-asif-karims-projects-662fec7a.vercel.app/
 
 First, download the file from the git repository.
 
-Second, install the necessary dependancies 
-        `npm install npm install express multer cloudinary streamifier ejs express-ejs-layout`
+Second, install the necessary dependancies
+`npm install npm install express multer cloudinary streamifier ejs express-ejs-layout`
 
-Third, to start the server type 
-        `node index.js`
+Third, to start the server type
+`node index.js`
 
-Fourth, now open your browser and visit 
-        `localhost:4000`
-
-### Notes
-
-By submitting this as my assignment, I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part of this assignment has been copied manually or electronically from any other source (including web sites) or distributed to other students.
+Fourth, now open your browser and visit
+`localhost:4000`
